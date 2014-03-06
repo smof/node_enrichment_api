@@ -16,7 +16,7 @@ curl -H "Content-Type: application/json" --request GET "http://localhost:3000/lo
 <br/>
 <b>Example - false</b>
 <br/>
-curl -H "Content-Type: application/json" --request GET "http://localhost:3000/jdoe"
+curl -H "Content-Type: application/json" --request GET "http://localhost:3000/lookup/jdoe"
 <br/>
 {
   "over16": "false"
@@ -25,7 +25,7 @@ curl -H "Content-Type: application/json" --request GET "http://localhost:3000/jd
 <br/>
 <b>Example - unknown</b>
 <br/>
-curl -H "Content-Type: application/json" --request GET "http://localhost:3000/madeupname"
+curl -H "Content-Type: application/json" --request GET "http://localhost:3000/lookup/madeupname"
 <br/>
 {
   "over16": "unknown"
