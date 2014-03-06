@@ -7,17 +7,26 @@ Install nodeJS.  Run npm install in app directory to install dependencies.  To s
 <br/>
 <b>Example - true</b>
 <br/>
-curl -H "Content-Type: application/json" --request POST --data '{"user":"smof"}' "http://localhost:3000/lookup"
+curl -H "Content-Type: application/json" --request GET "http://localhost:3000/lookup/smof"
 <br/>
 {
-  "over16": true
+  "over16": "true"
 }
 <br/>
 <br/>
 <b>Example - false</b>
 <br/>
-curl -H "Content-Type: application/json" --request POST --data '{"user":"jdoe"}' "http://localhost:3000/lookup"
+curl -H "Content-Type: application/json" --request GET "http://localhost:3000/jdoe"
 <br/>
 {
-  "over16": false
+  "over16": "false"
+}
+<br/>
+<br/>
+<b>Example - unknown</b>
+<br/>
+curl -H "Content-Type: application/json" --request GET "http://localhost:3000/madeupname"
+<br/>
+{
+  "over16": "unknown"
 }
