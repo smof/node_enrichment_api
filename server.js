@@ -8,25 +8,26 @@ lookup = function(req, res) {
 	//set unknown by default
 	var over16 = "unknown";
 	
+	//pull in req value
+	var requestUid = req.params.uid;
+	
 	//set response obj
 	var responseObj = {};
 	
         //logging
-        console.log('Enrichment request received');
+        console.log('Enrichment request received for uid: ' + requestUid);
         
-        //split out body attributes
-        requestUser = req.body.user;
-                
+                   
         //noddy conditional check // switch to mongo or 
-        if (requestUser === "smof") {
+        if (requestUid === "smof") {
         
-        	over16 = true;
+        	over16 = "true";
         
         }
         
-        if (requestUser === "jdoe") {
+        if (requestUid === "jdoe") {
         
-        	over16 = false;
+        	over16 = "false";
         
         }
         
@@ -34,7 +35,7 @@ lookup = function(req, res) {
         responseObj.over16 = over16;
         res.send(responseObj);
 
-        console.log('Response sent');
+        console.log('Response sent: ' + JSON.stringify(responseObj));
 };
 ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -44,7 +45,7 @@ lookup = function(req, res) {
 app.use(express.bodyParser());
 
 //authenticates user - url maps to function
-app.post('/lookup', lookup);
+app.get('/lookup/:uid', lookup);
 
 //set listener port
 var port = 3000;
